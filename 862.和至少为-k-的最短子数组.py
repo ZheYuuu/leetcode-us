@@ -46,6 +46,12 @@ class Solution:
                 d.popleft()
             d.append(i)
 
+class Solution:
+    def shortestSubarray(self, A,K):
+        q = []
+        flag = False
+        
+
 #  if __name__ == "__main__":
 #     t = Solution().shortestSubarray([2,-1,2], 4)
 #     print(t)

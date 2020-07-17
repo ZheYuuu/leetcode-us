@@ -18,10 +18,28 @@ class Solution:
                 stack.pop()
             stack.append(i)
         return res
+class Solution:
+    def largestRectangleArea(self, heights: List[int]) -> int:
+        if not heights:
+            return 0
+        heights = [0]+heights+[0]
+        # monotic incresing queue
+        q = [0]
+        n = len(heights)
+        ans = 0 
+        for i in range(1, n):
+            while(q and heights[i]<heights[q[-1]]):
+                curr = q.pop()
+                left = q[-1]
+                right = i
+                ans = max(heights[curr]*(right-left-1), ans)
+            q.append(i)
+        return ans 
+    
 
-if __name__ == "__main__":
-    t = Solution().largestRectangleArea([3,1,3,2,2])
-    print(t)
+# if __name__ == "__main__":
+#     t = Solution().largestRectangleArea([2,1,2])
+#     print(t)
     
 
 
